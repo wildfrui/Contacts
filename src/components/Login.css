@@ -1,0 +1,28 @@
+.login__container {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  width: 400px;
+  height: 400px;
+  background-color: #f68989;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid black;
+  border-radius: 15px;
+}
+
+.login__form {
+  display: flex;
+  flex-direction: column;
+}
+
+.login__title {
+  font-size: 44px;
+}
+
+.login__submit {
+  margin-top: 20px;
+}
