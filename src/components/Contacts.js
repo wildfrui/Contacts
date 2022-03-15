@@ -1,9 +1,14 @@
-import React from 'react'
+import React from "react";
+import ContactList from "./ContactList";
+import CreateContact from "./CreateContact";
 
 const Contacts = () => {
-return <div>
-    Lol
-</div>
-}
+  return (
+    <div>
+      <CreateContact></CreateContact>
+      <ContactList></ContactList>
+    </div>
+  );
+};
 
-export default Contacts
+export default Contacts;
