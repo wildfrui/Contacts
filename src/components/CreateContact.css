@@ -1,0 +1,24 @@
+.create__container {
+  padding: 20px;
+  background-color: #a6b1e1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.create__title {
+  padding-left: 30px;
+  font-size: 24px;
+  margin-bottom: -20px;
+}
+.create__form {
+  display: flex;
+  flex-direction: column;
+}
+
+.create__submit {
+  margin-top: 20px;
+  background-color: #aa96da;
+  border: none;
+}

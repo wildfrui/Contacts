@@ -1,0 +1,12 @@
+.contact__container {
+  margin-top: 15px;
+  background-color: #d6e6f2;
+}
+
+.contact__name {
+  font-size: 24px;
+  font-weight: bold;
+}
+.contact__number {
+  font-size: 16px;
+}
