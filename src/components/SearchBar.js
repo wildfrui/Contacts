@@ -1,14 +1,31 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import { connect } from "react-redux";
+import { changeTerm } from "../actions";
 
-const SearchBar = () => {
+const SearchBar = ({ changeTerm }) => {
+  const [term, setTerm] = useState("");
+
+  const handleChange = (e) => {
+    setTerm(e.target.value);
+  };
+
+  useEffect(() => {
+    const timeoutId = setTimeout(() => {
+      changeTerm(term);
+    }, 500);
+    return () => {
+      clearTimeout(timeoutId);
+    };
+  }, [term]);
+
   return (
     <div>
       <label htmlFor="">
         <p>Искать контакт</p>
-        <input className="input" type="text" />
+        <input onChange={handleChange} className="input" type="text" />
       </label>
     </div>
   );
 };
 
-export default SearchBar;
+export default connect(null, { changeTerm })(SearchBar);
