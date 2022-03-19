@@ -1,22 +1,20 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import { connect } from "react-redux";
 import { changeTerm } from "../actions";
 
 const SearchBar = ({ changeTerm }) => {
-  const [term, setTerm] = useState("");
-
   const handleChange = (e) => {
-    setTerm(e.target.value);
+    changeTerm(e.target.value);
   };
 
-  useEffect(() => {
-    const timeoutId = setTimeout(() => {
-      changeTerm(term);
-    }, 500);
-    return () => {
-      clearTimeout(timeoutId);
-    };
-  }, [term]);
+  // useEffect(() => {
+  //   const timeoutId = setTimeout(() => {
+  //     changeTerm(term);
+  //   }, 500);
+  //   return () => {
+  //     clearTimeout(timeoutId);
+  //   };
+  // }, [term]);
 
   return (
     <div>

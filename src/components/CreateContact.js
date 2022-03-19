@@ -1,8 +1,10 @@
 import React from "react";
 import { Form, Field } from "react-final-form";
+import { connect } from "react-redux";
+import { addContact } from "../actions";
 import "./CreateContact.css";
 
-const CreateContact = () => {
+const CreateContact = ({ addContact }) => {
   const renderInput = ({ input, label }) => {
     return (
       <label>
@@ -14,6 +16,7 @@ const CreateContact = () => {
 
   const onSubmit = (formValues) => {
     console.log(formValues);
+    addContact(formValues);
   };
 
   return (
@@ -41,4 +44,4 @@ const CreateContact = () => {
   );
 };
 
-export default CreateContact;
+export default connect(null, { addContact })(CreateContact);

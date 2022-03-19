@@ -1,4 +1,6 @@
 .contact__container {
+  display: flex;
+  justify-content: space-between;
   margin-top: 15px;
   background-color: #d6e6f2;
   padding: 20px;
@@ -9,5 +11,9 @@
   font-weight: bold;
 }
 .contact__number {
+  font-size: 16px;
+}
+.contact__delete {
+  margin-top: 10px;
   font-size: 16px;
 }

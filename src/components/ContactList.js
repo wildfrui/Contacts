@@ -1,39 +1,28 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { connect } from "react-redux";
 import Contact from "./Contact.js";
+import { getContacts } from "../actions";
 import "./ContactList.css";
 
-const contacts = [
-  { name: "Artyom", number: "+7903543444444" },
-  { name: "Alex", number: "+7903543444444" },
-  { name: "Borya", number: "+7903543444444" },
-  { name: "Sasha", number: "+7903543444444" },
-  { name: "Pasha", number: "+7903543444444" },
-  { name: "Artur", number: "+7903543444444" },
-  { name: "Artyom", number: "+7903543444444" },
-  { name: "Artyom", number: "+7903543444444" },
-  { name: "Artyom", number: "+7903543444444" },
-  { name: "Artyom", number: "+7903543444444" },
-  { name: "Artyom", number: "+7903543444444" },
-  { name: "Artyom", number: "+7903543444444" },
-  { name: "Artyom", number: "+7903543444444" },
-  { name: "Artyom", number: "+7903543444444" },
-  { name: "Artyom", number: "+7903543444444" },
-  { name: "Artyom", number: "+7903543444444" },
-  { name: "Artyom", number: "+7903543444444" },
-];
+const ContactList = ({ term, contacts, getContacts }) => {
+  useEffect(() => {
+    getContacts();
+  }, []);
 
-const ContactList = ({ term }) => {
   const renderContacts = () => {
-    return contacts.map((contact, index) => {
+    console.log();
+    return contacts.map((contact) => {
       if (term) {
         const lowerTerm = term.toLowerCase();
-        if (contact.name.toLowerCase().includes(lowerTerm) === false) {
+        if (
+          contact.name.toLowerCase().includes(lowerTerm) === false &&
+          contact.number.includes(term) === false
+        ) {
           return;
         }
       }
 
-      return <Contact key={index} contact={contact}></Contact>;
+      return <Contact key={contact.id} contact={contact}></Contact>;
     });
   };
 
@@ -41,7 +30,10 @@ const ContactList = ({ term }) => {
 };
 
 const mapStateToProps = (state) => {
-  return { term: state.searchTerm };
+  return {
+    contacts: Object.values(state.contacts).reverse(),
+    term: state.searchTerm,
+  };
 };
 
-export default connect(mapStateToProps)(ContactList);
+export default connect(mapStateToProps, { getContacts })(ContactList);

@@ -7,7 +7,6 @@ import "./App.css";
 
 const App = () => {
   const { token, setToken } = useToken();
-  console.log(token);
   if (!token) {
     return <Login setToken={setToken}></Login>;
   }
