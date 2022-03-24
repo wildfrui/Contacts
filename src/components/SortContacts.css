@@ -1,0 +1,26 @@
+.sort__container {
+  margin-top: 20px;
+  background-color: #ffbde6;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.sort__form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.sort__title {
+  font-size: 16px;
+  margin-bottom: 15px;
+  font-weight: bold;
+}
+.sort__checkbox {
+  margin-right: 15px;
+}
+
+.sort__submit {
+  margin-top: 10px;
+}

@@ -1,6 +1,7 @@
 .contact__container {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   margin-top: 15px;
   background-color: #d6e6f2;
   padding: 20px;
@@ -11,9 +12,16 @@
   font-weight: bold;
 }
 .contact__number {
-  font-size: 16px;
+  margin-top: 5px;
+  font-size: 24px;
 }
 .contact__delete {
-  margin-top: 10px;
+  margin-top: 5px;
   font-size: 16px;
+}
+
+.contact__date {
+  margin-top: 20px;
+  font-size: 13px;
+  font-weight: bold;
 }

@@ -1,6 +1,7 @@
 import { combineReducers } from "redux";
 import { termReducer } from "./termReducer";
 import { contactReducer } from "./contactReducer";
+import { sortReducer } from "./sortReducer";
 
 const userReducer = (state = {}, action) => {
   switch (action.type) {
@@ -15,4 +16,5 @@ export default combineReducers({
   users: userReducer,
   searchTerm: termReducer,
   contacts: contactReducer,
+  sortTerm: sortReducer,
 });

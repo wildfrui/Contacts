@@ -7,6 +7,13 @@ export const changeTerm = (term) => {
   };
 };
 
+export const updateSort = (sortTerm) => {
+  return {
+    type: "UPDATE_SORT",
+    payload: sortTerm,
+  };
+};
+
 export const addContact = (formValues) => {
   return async (dispatch) => {
     const response = await database.post("/contacts", formValues);

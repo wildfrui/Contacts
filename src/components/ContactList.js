@@ -4,14 +4,26 @@ import Contact from "./Contact.js";
 import { getContacts } from "../actions";
 import "./ContactList.css";
 
-const ContactList = ({ term, contacts, getContacts }) => {
+const ContactList = ({ term, contacts, getContacts, sortTerm }) => {
   useEffect(() => {
     getContacts();
+    console.log(sortTerm);
   }, []);
 
   const renderContacts = () => {
-    console.log();
-    return contacts.map((contact) => {
+    let newContacts = contacts;
+    if (sortTerm.sort === "contactName") {
+      newContacts.sort((a, b) => {
+        if (a.name > b.name) {
+          return 1;
+        }
+        if (a.name < b.name) {
+          return -1;
+        }
+        return 0;
+      });
+    }
+    return newContacts.map((contact) => {
       if (term) {
         const lowerTerm = term.toLowerCase();
         if (
@@ -33,6 +45,7 @@ const mapStateToProps = (state) => {
   return {
     contacts: Object.values(state.contacts).reverse(),
     term: state.searchTerm,
+    sortTerm: state.sortTerm,
   };
 };
 
